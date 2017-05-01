@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "287776341843",
+    "firebase_url": "https://the-kost.firebaseio.com",
+    "project_id": "the-kost",
+    "storage_bucket": "the-kost.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:287776341843:android:17767ae10c51d507",
+        "android_client_info": {
+          "package_name": "faruqisan.thekost"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "287776341843-34lnhuh47ntlgp9d404dknn8frt1j6ec.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "faruqisan.thekost",
+            "certificate_hash": "0402e603467378a4226577a9f2faae3985809290"
+          }
+        },
+        {
+          "client_id": "287776341843-poej2jsvs87j52qtql8aifgauhon3u0i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWOVV9O9HXmzCfNLDocD8lijhP_ZqdZ8o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "287776341843-poej2jsvs87j52qtql8aifgauhon3u0i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
