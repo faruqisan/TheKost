@@ -5,4 +5,8 @@
     <string name="label_signin">Sign In</string>
     <string name="label_signup">Sign Up</string>
     <string name="label_name">Name</string>
+    <string name="title_activity_kost_detail">Map</string>
+    <string name="label_kost_name">Kost Name</string>
+    <string name="label_find_location">Pick</string>
+    <string name="label_kost_location">Kost Location</string>
 </resources>
