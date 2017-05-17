@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -20,6 +21,8 @@ import com.google.android.gms.location.places.Places;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -37,7 +40,7 @@ public class CreateKostActivity extends AppCompatActivity implements OnConnectio
     private Place pickedPlace;
     private FloatingActionButton fabSavekost;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference myRef = database.getReference();
+    private DatabaseReference myRef = database.getReference("kosts");
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -100,6 +103,9 @@ public class CreateKostActivity extends AppCompatActivity implements OnConnectio
 
         String kostName = etKostName.getText().toString();
         LatLng pickedLatLng = pickedPlace.getLatLng();
+        Log.d("raw latlng", String.valueOf(pickedPlace.getLatLng()));
+        Log.d("raw lat", String.valueOf(pickedLatLng.latitude));
+        Log.d("raw lng", String.valueOf(pickedLatLng.longitude));
         double lat = pickedLatLng.latitude;
         double lng = pickedLatLng.longitude;
         String userId = user.getUid();
@@ -109,8 +115,15 @@ public class CreateKostActivity extends AppCompatActivity implements OnConnectio
         kost.setLng(lng);
         kost.setName(kostName);
         kost.setUser_id(userId);
-        String a = myRef.child("kosts").getKey();
-        myRef.child("kosts").child(a).setValue(kost);
-        finish();
+//        myRef.push().setValue(kost);
+        myRef.push().setValue(kost).addOnCompleteListener(this, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(CreateKostActivity.this,"Kost Created ! ", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        });
     }
 }

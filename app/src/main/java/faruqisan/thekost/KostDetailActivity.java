@@ -12,6 +12,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class KostDetailActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -47,8 +49,8 @@ public class KostDetailActivity extends FragmentActivity implements OnMapReadyCa
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        float lat = this.getIntent().getFloatExtra("lat", 0);
-        float lng = this.getIntent().getFloatExtra("lng", 0);
+        double lat = this.getIntent().getDoubleExtra("lat", 0);
+        double lng = this.getIntent().getDoubleExtra("lng", 0);
         String kostName = this.getIntent().getStringExtra("name");
         String userId = this.getIntent().getStringExtra("user_id");
 
